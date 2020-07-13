@@ -6,7 +6,7 @@
 /*   By: jason <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/01 14:02:12 by jason             #+#    #+#             */
-/*   Updated: 2020/06/02 14:08:23 by jason            ###   ########.fr       */
+/*   Updated: 2020/07/13 16:22:43 by jason            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,49 +17,37 @@ void	ft_printf_c(char c)
 	ft_putchar_fd(1, c);
 }
 
-void	ft_printf_s(char *s)
+void	ft_printf_s(char *s, va_list ap)
 {
 	ft_putstr_fd(1, s);
 }
 
-/*
-void	ft_printf_p(void *p)
+void	ft_printf_p(void *p, va_list ap)
 {
-	int	*ptr1 = malloc(sizeof(int));
-	void	**ptr2;
-
-	ptr2 = &p;
-	*ptr1 = (int)ptr2;
-
-	printf("%s\n", (char *)ptr2);
-	printf("%c\n", *(char *)ptr1);
-	free(ptr1);
+	ft_putstr_fd(1, ft_pvalue(p));
 }
-*/
 
-
-void	ft_printf_d(int d)
+void	ft_printf_d(int d, va_list ap)
 {
 	ft_putstr_fd(1, ft_itoa(d));
 }
 
-void	ft_printf_i(int i)
+void	ft_printf_i(int i, va_list ap)
 {
 	ft_putstr_fd(1, ft_itoa(i));
 }
 
-
-void	ft_printf_u(unsigned u)
+void	ft_printf_u(unsigned u, va_list ap)
 {
 	ft_putstr_fd(1, ft_utoa(u));
 }
 
-void	ft_printf_x(unsigned x)
+void	ft_printf_x(unsigned x, va_list ap)
 {
 	ft_putstr_fd(1, ft_base(x));
 }
 
-void	ft_printf_X(unsigned X)
+void	ft_printf_X(unsigned X, va_list ap)
 {
 	ft_putstr_fd(1, ft_Base(X));
 }

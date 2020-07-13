@@ -6,7 +6,7 @@
 /*   By: jason <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 11:38:44 by jason             #+#    #+#             */
-/*   Updated: 2020/06/02 14:48:16 by jason            ###   ########.fr       */
+/*   Updated: 2020/07/13 15:45:35 by jason            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
 
 # include <stdio.h>
 
-int		ft_printf(const char *str, char c, char *s, int d, int i, unsigned u, unsigned x, unsigned X);
+int		ft_printf(const char *str, ...);
 
 void		ft_putchar_fd(int fd, char c);
 void		ft_putstr_fd(int fd, char *s);
+char		*ft_pvalue(void *p);
 char		*ft_itoa(int n);
 char		*ft_utoa(unsigned u);
 char		*ft_base(unsigned x);

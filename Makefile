@@ -6,7 +6,7 @@
 #    By: jason <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/02 15:03:45 by jason             #+#    #+#              #
-#    Updated: 2020/06/02 15:12:28 by jason            ###   ########.fr        #
+#    Updated: 2020/06/02 15:30:09 by jason            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,5 +39,10 @@ re	:	fclean all
 
 norm	:
 		norminette -R CheckForbiddenSourceHeader */*.[ch]
+
+
+comfile	:
+		${CC} ${CFLAGS} ${SRC}
+		./a.out
 
 .PHONY	:	norm re fclean clean all .c.o

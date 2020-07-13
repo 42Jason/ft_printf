@@ -6,7 +6,7 @@
 /*   By: jason <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 11:49:56 by jason             #+#    #+#             */
-/*   Updated: 2020/06/02 14:44:47 by jason            ###   ########.fr       */
+/*   Updated: 2020/06/02 22:20:56 by jason            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@ void	ft_putstr_fd(int fd, char *s)
 		idx++;
 	}
 }
+
+
+char	*ft_pvalue(void *p)
+{
+	int **a;
+
+	a = (int **)&p;
+	return ("p");
+}
+
 
 int		ft_nbr(int n)
 {

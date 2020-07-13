@@ -6,47 +6,49 @@
 /*   By: jason <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 11:41:22 by jason             #+#    #+#             */
-/*   Updated: 2020/06/02 15:02:32 by jason            ###   ########.fr       */
+/*   Updated: 2020/07/13 16:22:40 by jason            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *str, char	c, char *s, int d, int i, unsigned u, unsigned x, unsigned X)
+int	ft_printf(const char *types, ...)
 {
-	char	*dst;
+	va_list	ap;
+	va_list copy;
 	int	idx;
 
-	idx = 0;
-	dst = (char *)str;
-	while (dst[idx] != '\0')
+	va_start(ap, types);
+	va_copy(ap, copy);
+	while (types[idx] != '\0')
 	{
-		if (dst[idx] == '%')
+		if (types[idx] == '%')
 		{
 			idx++;
-			if (dst[idx] == 'c')
-				ft_printf_c(c);
-			else if (dst[idx] == 's')
-				ft_printf_s(s);
-			else if (dst[idx] == 'p')
-				;
-			else if (dst[idx] == 'd')
-				ft_printf_d(d);
-			else if (dst[idx] == 'i')
-				ft_printf_d(i);
-			else if (dst[idx] == 'u')
-				ft_printf_u(u);
-			else if (dst[idx] == 'x')
-				ft_printf_x(x);
-			else if (dst[idx] == 'X')
-				ft_printf_X(X);
+			if (types[idx] == 'c')
+				ft_printf_c(va_arg(ap, char));
+			else if (types[idx] == 's')
+				va_arg(ap, char *);
+			else if (types[idx] == 'p')
+				va_arg(ap, void *)
+			else if (types[idx] == 'd')
+				va_arg(ap, int)
+			else if (types[idx] == 'i')
+				va_arg(ap, int);
+			else if (types[idx] == 'u')
+				va_arg(ap, unsigned int);
+			else if (types[idx] == 'x')
+				va_arg(ap, unsigned int);
+			else if (types[idx] == 'X')
+				va_arg(ap, unsigned int);
 			else
 				return (-1);
 		}
 		else
-			ft_putchar_fd(1, dst[idx]);
+			ft_putchar_fd(1, types[idx]);
 		idx++;
 	}
+	va_end(ap);
 	return (0);
 }
 
@@ -54,24 +56,25 @@ int	main(void)
 {
 	char	c;
 	char	*s;
-	char	*ss[3];
+	int	*p;
 	int	d;
 	int	i;
 	unsigned	u;
 	int	x;
 
-	c = 'a';
-	s = "안녕하세요";
-	ss[0] = "aa";
-	ss[1] = "bb";
+	void	*w = 0;
+
+	c = '^';
+	s = "0";
+	p = 0;
 	d = 456;
 	i = 789;
-	u = -2;
+	u = 65538752;
 	x = 1118;
 
-	   printf("123%c%s%d%i\n%u\n%x%X끝\n", c, s, d, i, u, x, x);
+	   printf("\n123%c %s\n%p\n%d %i\n%u\n%x %X끝\n", c, s, w, d, i, u, x, x);
 
-	ft_printf("123%c%s%d%i\n%u\n%x%X끝\n", c, s, d, i, u, x, x);
+	ft_printf("\n123%c %s\n%p\n%d %i\n%u\n%x %X끝\n", c, s, p, d, i, u, x, x);
 
 	return (0);
 }
