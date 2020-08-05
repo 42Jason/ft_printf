@@ -6,7 +6,7 @@
 /*   By: jason <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 11:38:44 by jason             #+#    #+#             */
-/*   Updated: 2020/07/13 15:45:35 by jason            ###   ########.fr       */
+/*   Updated: 2020/08/05 15:33:15 by jason            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 
 # include <stdio.h>
 
-int		ft_printf(const char *str, ...);
+int	main(void);
+
+int		ft_printf(const char *types, ...);
 
 void		ft_putchar_fd(int fd, char c);
 void		ft_putstr_fd(int fd, char *s);
@@ -34,8 +36,8 @@ void	ft_printf_s(char *s);
 void	ft_printf_p(void *p);
 void	ft_printf_d(int d);
 void	ft_printf_i(int i);
-void	ft_printf_u(unsigned u);
-void	ft_printf_x(unsigned x);
-void	ft_printf_X(unsigned X);
+void	ft_printf_u(unsigned int u);
+void	ft_printf_x(unsigned int x);
+void	ft_printf_X(unsigned int X);
 
 #endif
